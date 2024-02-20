@@ -1,8 +1,8 @@
-console.log('Hello via Bun!');
+import { Hono } from 'hono';
+
+const app = new Hono();
 
 Bun.serve({
-  fetch: (request) => {
-    return new Response('Hello, world!');
-  },
+  fetch: app.fetch,
   port: 3000,
 });
